@@ -50,6 +50,33 @@ python scripts/synth_baseline_chatterbox.py --out runs/baseline_chatterbox
 python scripts/run_eval.py --wav-dir runs/baseline_mms --out runs/baseline_mms/results
 ```
 
+## Running on Modal
+
+The full pipeline runs on the team's [Modal](https://modal.com) workspace —
+no local GPU needed. Data, checkpoints, and results persist in the
+`sauti-tts-v2-data` Volume.
+
+```bash
+pip install modal && modal setup
+modal secret create huggingface HF_TOKEN=hf_...   # once, if WaxalNLP is gated
+
+modal run modal_app.py --stage prepare      # CPU: WAXAL -> Volume
+modal run modal_app.py --stage filter       # L4: CER transcript filter
+modal run modal_app.py --stage baselines    # L4: MMS + Chatterbox zero-shot
+modal run modal_app.py --stage eval --run-name baseline_mms
+modal run modal_app.py --stage train        # A10G: Chatterbox LoRA (Track A)
+modal run modal_app.py --stage eval --run-name chatterbox_sw_lora
+```
+
+Ballpark cost: prepare + filter + baselines + eval ≈ a few GPU-hours on L4
+(~$1/h); a LoRA training run on A10G (~$1.10/h) is single-digit dollars per
+attempt. A full fine-tune needs `gpu="L40S"` in `modal_app.py`.
+
+Before the first long training run, check the items in
+`train_chatterbox()`'s docstring — the fine-tuning toolkit's config schema
+was not fully verifiable at design time, and the script is built to fail
+loudly (not silently mistrain) if keys have drifted.
+
 ## Evaluation protocol
 
 - **Intelligibility:** WER **and CER** (Swahili's agglutinative morphology inflates
