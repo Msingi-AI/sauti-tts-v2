@@ -36,6 +36,12 @@ TOOLKIT_REPO = "https://github.com/gokhaneraslan/chatterbox-finetuning"
 TOOLKIT_REF = "main"
 TOOLKIT_DIR = "/opt/chatterbox-finetuning"
 
+# Training hardware. Multi-GPU is launched via `accelerate` and only speeds
+# things up if the toolkit's train loop supports DDP — watch per-GPU
+# utilization on the first run; if only GPU 0 is busy, drop the count to 1.
+TRAIN_GPU = "A100-40GB"
+TRAIN_GPU_COUNT = 4
+
 base_image = (
     modal.Image.debian_slim(python_version="3.11")
     .apt_install("git", "ffmpeg", "libsndfile1")
@@ -54,6 +60,7 @@ train_image = (
         f"git clone {TOOLKIT_REPO} {TOOLKIT_DIR}",
         f"cd {TOOLKIT_DIR} && git checkout {TOOLKIT_REF} && pip install -r requirements.txt",
     )
+    .pip_install("accelerate")
     .add_local_dir("scripts", remote_path="/root/sauti/scripts")
 )
 
@@ -139,7 +146,8 @@ def patch_dataset_path(config_path: Path, dataset_dir: str):
     )
 
 
-@app.function(image=train_image, volumes={VOL: vol}, gpu="A10G", timeout=24 * 3600)
+@app.function(image=train_image, volumes={VOL: vol},
+              gpu=f"{TRAIN_GPU}:{TRAIN_GPU_COUNT}", timeout=24 * 3600)
 def train_chatterbox(lora: bool = True, run_name: str = "chatterbox_sw_lora"):
     """Track A: fine-tune Chatterbox on the filtered WAXAL data.
 
@@ -148,7 +156,8 @@ def train_chatterbox(lora: bool = True, run_name: str = "chatterbox_sw_lora"):
       - confirm how the toolkit selects the MULTILINGUAL checkpoint (Swahili
         needs ChatterboxMultilingualTTS, not the English Turbo model)
       - confirm the dataset-path config key name
-      - LoRA on A10G (24 GB); switch gpu="L40S" for a full fine-tune
+      - with TRAIN_GPU_COUNT > 1, confirm all GPUs show utilization (toolkit
+        must support DDP for the extra GPUs to contribute)
     """
     import shutil
 
@@ -173,7 +182,15 @@ def train_chatterbox(lora: bool = True, run_name: str = "chatterbox_sw_lora"):
     patch_dataset_path(config, str(staged))
 
     subprocess.run(["python", "setup.py"], cwd=TOOLKIT_DIR, check=True)
-    subprocess.run(["python", "train.py"], cwd=TOOLKIT_DIR, check=True)
+
+    import torch
+    n_gpus = torch.cuda.device_count()
+    if n_gpus > 1:
+        train_cmd = ["accelerate", "launch", "--multi_gpu",
+                     f"--num_processes={n_gpus}", "train.py"]
+    else:
+        train_cmd = ["python", "train.py"]
+    subprocess.run(train_cmd, cwd=TOOLKIT_DIR, check=True)
 
     out = Path(CKPT) / run_name
     out.mkdir(parents=True, exist_ok=True)

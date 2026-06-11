@@ -69,8 +69,11 @@ modal run modal_app.py --stage eval --run-name chatterbox_sw_lora
 ```
 
 Ballpark cost: prepare + filter + baselines + eval ≈ a few GPU-hours on L4
-(~$1/h); a LoRA training run on A10G (~$1.10/h) is single-digit dollars per
-attempt. A full fine-tune needs `gpu="L40S"` in `modal_app.py`.
+(~$1/h). Training runs on 4×A100-40GB (~$8/h total; set via `TRAIN_GPU` /
+`TRAIN_GPU_COUNT` in `modal_app.py`) and is launched through `accelerate` —
+on the first run, confirm all four GPUs show utilization; if the fine-tuning
+toolkit turns out not to support DDP, drop `TRAIN_GPU_COUNT` to 1 (~$2/h)
+rather than paying for idle GPUs.
 
 Before the first long training run, check the items in
 `train_chatterbox()`'s docstring — the fine-tuning toolkit's config schema
