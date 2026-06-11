@@ -1,0 +1,13 @@
+torch>=2.1
+torchaudio>=2.1
+transformers>=4.46
+accelerate
+datasets[audio]>=2.20
+soundfile
+jiwer>=3.0
+speechbrain>=1.0
+tqdm
+
+# Baseline-only (heavier / pins its own deps — install in a separate venv if it
+# conflicts with the training stack):
+# chatterbox-tts

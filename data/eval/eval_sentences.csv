@@ -1,0 +1,49 @@
+id,category,text
+gen_001,general,"Habari za asubuhi, karibu katika matangazo yetu ya leo."
+gen_002,general,Mvua kubwa ilinyesha jana usiku katika mkoa wa Mwanza.
+gen_003,general,Watoto wanapenda kucheza mpira uwanjani kila jioni.
+gen_004,general,Serikali imetangaza mpango mpya wa kuboresha elimu nchini.
+gen_005,general,Soko la Kariakoo lina bidhaa za kila aina kwa bei nafuu.
+gen_006,general,Tafadhali funga mlango kabla ya kuondoka nyumbani.
+gen_007,general,Wakulima wanavuna mahindi mwezi huu kutokana na mvua nzuri.
+gen_008,general,Daktari alimshauri mgonjwa apumzike kwa siku tatu.
+gen_009,general,Safari ya basi kutoka Nairobi hadi Mombasa huchukua masaa nane.
+gen_010,general,Kitabu hiki kinaeleza historia ya Afrika Mashariki kwa undani.
+gen_011,general,Wanafunzi walifaulu mtihani wao kwa alama za juu sana.
+gen_012,general,"Hali ya hewa leo ni nzuri, jua linawaka na upepo ni mwanana."
+num_001,numbers_dates,Mkutano utaanza saa 3 asubuhi tarehe 15 Julai 2026.
+num_002,numbers_dates,Bei ya sukari imepanda hadi shilingi 3500 kwa kilo.
+num_003,numbers_dates,Timu yetu ilishinda kwa mabao 2 dhidi ya 1.
+num_004,numbers_dates,Zaidi ya watu 250 walihudhuria mkutano huo.
+num_005,numbers_dates,Mwaka 1964 Tanganyika na Zanzibar ziliungana.
+num_006,numbers_dates,Simu yangu mpya iligharimu shilingi elfu 45.
+num_007,numbers_dates,Asilimia 78 ya wakazi wanaishi vijijini.
+num_008,numbers_dates,Tutaondoka saa 12 jioni tarehe 3 Machi.
+num_009,numbers_dates,Shule ina wanafunzi 1200 na walimu 48.
+num_010,numbers_dates,Umbali kutoka hapa hadi mjini ni kilomita 25.
+num_011,numbers_dates,Alizaliwa tarehe 7 Aprili mwaka 1990.
+num_012,numbers_dates,Joto la leo ni nyuzi 28 mjini Dodoma.
+cs_001,code_switch,Nimetuma email kwa manager wako asubuhi hii.
+cs_002,code_switch,Tafadhali download fomu hiyo kutoka kwenye website yetu.
+cs_003,code_switch,Mkutano wa Zoom utaanza baada ya lunch.
+cs_004,code_switch,"Battery ya simu yangu imeisha, nahitaji charger."
+cs_005,code_switch,Alipata job mpya katika kampuni ya teknolojia.
+cs_006,code_switch,Weka password mpya kwenye account yako.
+cs_007,code_switch,Tuliangalia movie nzuri weekend iliyopita.
+cs_008,code_switch,Daktari alisema nipime blood pressure kila wiki.
+cs_009,code_switch,Bei hiyo ni discount ya asilimia hamsini.
+cs_010,code_switch,Nitakutumia link ya meeting kesho asubuhi.
+cs_011,code_switch,"Computer yangu ina virus, inahitaji antivirus mpya."
+cs_012,code_switch,Online shopping imekuwa maarufu sana siku hizi.
+ne_001,named_entities,Rais wa Kenya alizuru mji wa Kisumu wiki iliyopita.
+ne_002,named_entities,Mlima Kilimanjaro ndio mlima mrefu zaidi barani Afrika.
+ne_003,named_entities,"Ziwa Victoria linapakana na Kenya, Uganda na Tanzania."
+ne_004,named_entities,Bandari ya Mombasa ni lango kuu la biashara Afrika Mashariki.
+ne_005,named_entities,Chuo Kikuu cha Nairobi kimepokea wanafunzi wapya elfu kumi.
+ne_006,named_entities,Shirika la Afya Duniani limetoa taarifa mpya kuhusu chanjo.
+ne_007,named_entities,Mto Tana ni mto mrefu zaidi nchini Kenya.
+ne_008,named_entities,Hifadhi ya Serengeti huvutia watalii kutoka kote duniani.
+ne_009,named_entities,Benki Kuu ya Tanzania imeshusha riba kwa asilimia mbili.
+ne_010,named_entities,Jiji la Dar es Salaam lina wakazi zaidi ya milioni sita.
+ne_011,named_entities,Uwanja wa ndege wa Jomo Kenyatta ndio mkubwa Afrika Mashariki.
+ne_012,named_entities,Klabu ya Simba ilishinda ubingwa wa ligi msimu huu.
