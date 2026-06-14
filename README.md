@@ -97,6 +97,14 @@ loudly (not silently mistrain) if keys have drifted.
 categories (general, numbers/dates, code-switching, named entities). It needs
 native-speaker review and expansion to ~200 sentences before results are quotable.
 
+`data/eval/dia_longform_sw.jsonl` holds 10 long-form, Dia-style two-speaker
+dialogue scripts (`[S1]`/`[S2]` turns with occasional non-verbal cues) in the
+agriculture and health domains — the highest-impact Swahili TTS use cases. These
+exercise prosody, turn-taking, and sustained intelligibility that single
+sentences miss. Numbers are spelled out in words to keep them independent of the
+text normalizer. Like the sentence set, these need native-speaker review before
+results are quotable.
+
 ## License
 
 Code: MIT. Datasets and base-model weights carry their own licenses — see the
