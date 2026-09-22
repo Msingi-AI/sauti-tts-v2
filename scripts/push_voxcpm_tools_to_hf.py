@@ -25,6 +25,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--repo", required=True)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--message", default="v2.1: text front-end (verbalizer, ITN, English tables), "
+                                         "spelling eval in card, spelling demo clips")
     args = ap.parse_args()
 
     from huggingface_hub import CommitOperationAdd, HfApi, whoami
@@ -53,15 +55,22 @@ def main():
     if args.dry_run:
         print("dry run: nothing pushed")
         return
-    api.create_tag(repo_id=args.repo, tag="v2.0", revision=info.sha, exist_ok=True)
-    print(f"tagged v2.0 -> {info.sha[:8]} (state before this update)")
+    tags = {t.name: t.target_commit for t in api.list_repo_refs(args.repo).tags}
+    if "v2.0" not in tags:  # first update after the v2 weights push: pin that state
+        api.create_tag(repo_id=args.repo, tag="v2.0", revision=info.sha)
+        print(f"tagged v2.0 -> {info.sha[:8]} (state before this update)")
+    else:
+        print(f"v2.0 stays at {tags['v2.0'][:8]}")
     commit = api.create_commit(
         repo_id=args.repo, operations=ops,
-        commit_message="v2.1: text front-end (verbalizer, ITN, English tables), "
-                       "spelling eval in card, spelling demo clips",
+        commit_message=args.message,
     )
     print(f"pushed: {commit.commit_url}")
-    api.create_tag(repo_id=args.repo, tag="v2.1", exist_ok=True)
+    # move the floating v2.1 tag to the new head
+    existing = {t.name for t in api.list_repo_refs(args.repo).tags}
+    if "v2.1" in existing:
+        api.delete_tag(repo_id=args.repo, tag="v2.1")
+    api.create_tag(repo_id=args.repo, tag="v2.1")
     print("tagged v2.1 -> main")
 
 

@@ -65,7 +65,7 @@ def test_en_ordinal():
     ("Nambari ya tiketi ni 48213.", "Nambari ya tiketi ni nne nane mbili moja tatu."),
     ("Your ticket number is 48213.", "Your ticket number is four eight two one three."),
     ("Weka PIN yako 2468 kisha bonyeza sawa.",
-     "Weka pii ai eni yako mbili nne sita nane kisha bonyeza sawa."),
+     "Weka PIN yako mbili nne sita nane kisha bonyeza sawa."),
     ("Tuma neno sawa kwa 22384.", "Tuma neno sawa kwa mbili mbili tatu nane nne."),
     ("Nambari yako ya siri ni 5931.", "Nambari yako ya siri ni tano tisa tatu moja."),
     # codes: letters + digits, hyphen is a pause
@@ -77,6 +77,14 @@ def test_en_ordinal():
     ("Kikao cha NHIF na KRA kitaanza saa 9.", "Kikao cha eni eichi ai efu na kei aa ei kitaanza saa tisa."),
     ("The KRA office is near NEMA.", "The kay ar ey office is near NEMA."),
     ("COVID-19 iliathiri watu wengi.", "COVID, kumi na tisa iliathiri watu wengi."),
+    # pronounceable capitals are words (PIN, SIM, BEI); unpronounceable or listed ones are spelled
+    ("Weka SIM kadi na piga ATM ya KCB.", "Weka SIM kadi na piga ei tii emu ya kei sii bii."),
+    ("ID yako na USA na CEO wa NEMA.", "ai dii yako na yuu esi ei na sii ii oo wa NEMA."),
+    ("Kikao cha ODM na UDA.", "Kikao cha oo dii emu na UDA."),
+    ("Report to HR by 9 AM.", "Report to aitch ar by nine ey em."),
+    # an all-caps sentence is shouting, not a string of acronyms
+    ("BEI YA SUKARI NI SHILINGI 3500 KWA KILO.", "BEI YA SUKARI NI SHILINGI elfu tatu mia tano KWA KILO."),
+    ("PIGA SIMU 0712 345 678 SASA.", "PIGA SIMU sifuri saba moja mbili, tatu nne tano, sita saba nane SASA."),
     # quantities stay cardinals
     ("Bei ya sukari ni shilingi 3500 kwa kilo.", "Bei ya sukari ni shilingi elfu tatu mia tano kwa kilo."),
     ("Timu yetu ilishinda kwa mabao 2 dhidi ya 1.", "Timu yetu ilishinda kwa mabao mbili dhidi ya moja."),
@@ -107,6 +115,17 @@ def test_en_ordinal():
 ])
 def test_verbalize(text, words):
     assert verbalize(text) == words
+
+
+@pytest.mark.parametrize("token, spelled", [
+    ("PIN", False), ("BEI", False), ("SIM", False), ("NEMA", False), ("UDA", False), ("SAWA", False),
+    ("STOP", False), ("KRA", True), ("NHIF", True), ("NSSF", True), ("KDA", True), ("OTP", True),
+    ("ATM", True), ("KQ", True), ("ID", True), ("USA", True), ("CEO", True), ("IEBC", True),
+    ("KCB", True), ("SMS", True), ("KENHA", False), ("UNICEF", False),
+])
+def test_spelled_rule(token, spelled):
+    from verbalizer import _spelled
+    assert _spelled(token) is spelled
 
 
 def test_forced_language():

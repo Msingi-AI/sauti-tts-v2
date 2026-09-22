@@ -34,15 +34,64 @@ import swahili_text as sw
 
 LANG_MODULES = {"sw": sw, "en": en}
 
-# All-caps tokens that are read as words, not letter by letter.
+# All-caps tokens that are read as words, not letter by letter (Kenyan usage).
 PRONOUNCED_ACRONYMS = {
     "NASA", "NATO", "NEMA", "KEMRI", "KEMSA", "SACCO", "UNICEF", "USAID", "UNESCO", "COVID",
     "FIFA", "CAF", "AIDS", "OPEC", "KEBS", "KEPSA", "NACADA", "TUKO", "UKIMWI", "KEFRI",
     "ICPAK", "KASNEB", "CHAN", "AFCON", "ECOWAS", "COMESA", "IGAD", "SADC", "UNEP", "WASCO",
+    "PIN", "SIM", "APP", "OK", "WIFI", "ZOOM", "UDA", "KANU", "NARC", "CORD", "JAP", "KUSCCO",
+    "NITA", "HELB", "KIPPRA", "KENHA", "KURA", "KERRA", "KEPHIS",
 }
-# All-caps tokens of five or more letters that are nevertheless spelled out.
-SPELLED_ACRONYMS = {"KUCCPS", "KNCHR", "KICTA", "NCPWD", "NHIF", "KPLC", "KNBS", "NCBA", "KCPE",
-                    "KCSE", "NSSF", "IEBC", "KTDA", "NCIC", "KWFT"}
+# All-caps tokens that look pronounceable but are spelled out (Kenyan usage).
+SPELLED_ACRONYMS = {
+    "KUCCPS", "KNCHR", "KICTA", "NCPWD", "NHIF", "KPLC", "KNBS", "NCBA", "KCPE", "KCSE", "NSSF",
+    "IEBC", "KTDA", "NCIC", "KWFT", "USA", "UAE", "CEO", "CFO", "COO", "ICU", "NGO", "WHO",
+    "HIV", "VIP", "VAT", "API", "URL", "SEO", "MOU", "DOB", "IOM", "ILO", "EAC", "CIA", "PAYE",
+    "IEC", "KCA", "NIA", "EIA", "UHC", "OTP", "USSD", "ATM", "KRA", "KDA", "SME", "EPZ", "ODM",
+}
+# Consonant pairs that a Swahili or English speaker reads as one syllable onset
+# or a prenasalized stop; any other pair (NH, KD, TP, ...) marks a spelled token.
+_CLUSTERS = {
+    "st", "sp", "sk", "sm", "sn", "sl", "sw", "tr", "dr", "br", "pr", "gr", "fr", "bl", "cl",
+    "fl", "gl", "pl", "ch", "sh", "th", "ng", "ny", "mb", "nd", "nj", "nz", "mw", "bw", "kw",
+    "gw", "tw", "dw", "sy", "ky", "vy", "fy", "py", "my", "ph", "wh", "ck", "nt", "nk", "mp",
+    "ll", "ss", "tt", "rr", "nn", "mm", "ff", "pp", "rt", "rk", "rm", "rn", "ld", "lt", "nc", "ns",
+}
+
+
+def _is_pronounceable(token: str) -> bool:
+    """Heuristic: an all-caps token that reads as a word (PIN, BEI, NEMA) rather than
+    letters (KRA, NHIF, OTP). Two-letter tokens are always spelled."""
+    t = token.lower()
+    if len(t) < 3 or not any(c in "aeiou" for c in t):
+        return False
+    run = ""
+    for c in t + "a":
+        if c in "aeiou":
+            if len(run) >= 3 or (len(run) == 2 and run not in _CLUSTERS):
+                return False
+            run = ""
+        else:
+            run += c
+    return True
+
+
+def _spelled(letters: str) -> bool:
+    """True when an all-caps token should be read letter by letter."""
+    if letters in PRONOUNCED_ACRONYMS:
+        return False
+    if letters in SPELLED_ACRONYMS:
+        return True
+    if len(letters) >= 5:
+        return False
+    return not _is_pronounceable(letters)
+
+
+def _shouting(text: str) -> bool:
+    """True when most words are in capitals (headline / SMS style): capitals are
+    ordinary words there, not acronyms."""
+    words = [w for w in WORD_RE.findall(text) if len(w) >= 2 and w.isalpha()]
+    return len(words) >= 3 and sum(w.isupper() for w in words) * 2 > len(words)
 
 ID_KEYWORDS = sw.ID_KEYWORDS | en.ID_KEYWORDS
 SCALE_WORDS = {"elfu": 1_000, "milioni": 1_000_000, "bilioni": 1_000_000_000,
@@ -60,6 +109,7 @@ PATTERNS = [
     ("percent", re.compile(r"(?<![\d.,])(\d(?:[\d,]*\d)?)(?:\.(\d+))?\s?%")),
     ("time", re.compile(r"(?<![\d:])([01]?\d|2[0-3]):([0-5]\d)(?![\d:])(?:\s?(am|pm|AM|PM)\b)?")),
     ("date", re.compile(r"(?<![\d.])(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})(?!\d|\.\d)")),
+    ("time12", re.compile(r"(?<![\d.,:])([01]?\d)\s?(am|pm|AM|PM|a\.m\.|p\.m\.)(?![A-Za-z])")),
     ("phone", re.compile(r"(?<![\d.,+])\+?\(?\d{2,6}\)?(?:[ \-.]\(?\d{2,6}\)?){1,5}(?![\d])"
                          r"|(?<![\d.,+])\+?\d{7,15}(?![\d])")),
     ("code", re.compile(r"(?<![A-Za-z0-9])[A-Z0-9]+(?:[-/][A-Z0-9]+)*(?![A-Za-z0-9])")),
@@ -154,8 +204,7 @@ def _spell(mod, s: str, letter_style: str | None) -> str:
 
 
 def _is_pronounced_word(part: str) -> bool:
-    return part.isalpha() and (part in PRONOUNCED_ACRONYMS
-                               or (len(part) >= 5 and part not in SPELLED_ACRONYMS))
+    return part.isalpha() and part.isupper() and not _spelled(part)
 
 
 def _code_words(mod, raw: str, letter_style: str | None) -> str:
@@ -203,6 +252,7 @@ def _classify_number(text: str, m: re.Match, mod) -> str:
 def _find_spans(text: str, lang: str, letter_style: str | None) -> list[Span]:
     taken: list[tuple[int, int]] = []
     spans: list[Span] = []
+    shouting = _shouting(text)
 
     def free(a: int, b: int) -> bool:
         return all(b <= s or a >= e for s, e in taken)
@@ -238,7 +288,7 @@ def _find_spans(text: str, lang: str, letter_style: str | None) -> list[Span]:
                 canonical = "".join(p for p in re.split(r"[-/]", raw) if not _is_pronounced_word(p))
             elif cls == "acronym":
                 letters = raw.replace(".", "")
-                if letters in PRONOUNCED_ACRONYMS or (len(letters) >= 5 and letters not in SPELLED_ACRONYMS):
+                if shouting or not _spelled(letters):
                     continue
                 if letters in ("AM", "PM") and text[:a].rstrip()[-1:].isdigit():
                     continue
@@ -258,6 +308,18 @@ def _find_spans(text: str, lang: str, letter_style: str | None) -> list[Span]:
                 num = m.group(1).replace(",", "") + (f".{m.group(2)}" if m.group(2) else "")
                 words = mod.percent(_number_words(mod, num))
                 canonical = num
+            elif cls == "time12":
+                h, suffix = int(m.group(1)), m.group(2).replace(".", "").lower()
+                if h > 12:
+                    continue
+                cls = "time"
+                if mod is sw:
+                    words = f"saa {sw.cardinal(h)} " + {"am": "asubuhi", "pm": "jioni"}[suffix]
+                    if _prev_words(text, a, 1) == ["saa"]:
+                        words = words[4:]
+                else:
+                    words = f"{en.cardinal(h)} {en.LETTERS[suffix[0]]} {en.LETTERS['m']}"
+                canonical = f"{h}00"
             elif cls == "time":
                 h, mi, suffix = int(m.group(1)), int(m.group(2)), m.group(3)
                 words = mod.time_of_day(h, mi, suffix)
