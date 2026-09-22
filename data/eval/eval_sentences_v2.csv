@@ -1,0 +1,97 @@
+id,category,text
+gen_001,general,"Habari za asubuhi, karibu katika matangazo yetu ya leo."
+gen_002,general,Mvua kubwa ilinyesha jana usiku katika mkoa wa Mwanza.
+gen_003,general,Watoto wanapenda kucheza mpira uwanjani kila jioni.
+gen_004,general,Serikali imetangaza mpango mpya wa kuboresha elimu nchini.
+gen_005,general,Soko la Kariakoo lina bidhaa za kila aina kwa bei nafuu.
+gen_006,general,Tafadhali funga mlango kabla ya kuondoka nyumbani.
+gen_007,general,Wakulima wanavuna mahindi mwezi huu kutokana na mvua nzuri.
+gen_008,general,Daktari alimshauri mgonjwa apumzike kwa siku tatu.
+gen_009,general,Safari ya basi kutoka Nairobi hadi Mombasa huchukua masaa nane.
+gen_010,general,Kitabu hiki kinaeleza historia ya Afrika Mashariki kwa undani.
+gen_011,general,Wanafunzi walifaulu mtihani wao kwa alama za juu sana.
+gen_012,general,"Hali ya hewa leo ni nzuri, jua linawaka na upepo ni mwanana."
+num_001,numbers_dates,Mkutano utaanza saa 3 asubuhi tarehe 15 Julai 2026.
+num_002,numbers_dates,Bei ya sukari imepanda hadi shilingi 3500 kwa kilo.
+num_003,numbers_dates,Timu yetu ilishinda kwa mabao 2 dhidi ya 1.
+num_004,numbers_dates,Zaidi ya watu 250 walihudhuria mkutano huo.
+num_005,numbers_dates,Mwaka 1964 Tanganyika na Zanzibar ziliungana.
+num_006,numbers_dates,Simu yangu mpya iligharimu shilingi elfu 45.
+num_007,numbers_dates,Asilimia 78 ya wakazi wanaishi vijijini.
+num_008,numbers_dates,Tutaondoka saa 12 jioni tarehe 3 Machi.
+num_009,numbers_dates,Shule ina wanafunzi 1200 na walimu 48.
+num_010,numbers_dates,Umbali kutoka hapa hadi mjini ni kilomita 25.
+num_011,numbers_dates,Alizaliwa tarehe 7 Aprili mwaka 1990.
+num_012,numbers_dates,Joto la leo ni nyuzi 28 mjini Dodoma.
+cs_001,code_switch,Nimetuma email kwa manager wako asubuhi hii.
+cs_002,code_switch,Tafadhali download fomu hiyo kutoka kwenye website yetu.
+cs_003,code_switch,Mkutano wa Zoom utaanza baada ya lunch.
+cs_004,code_switch,"Battery ya simu yangu imeisha, nahitaji charger."
+cs_005,code_switch,Alipata job mpya katika kampuni ya teknolojia.
+cs_006,code_switch,Weka password mpya kwenye account yako.
+cs_007,code_switch,Tuliangalia movie nzuri weekend iliyopita.
+cs_008,code_switch,Daktari alisema nipime blood pressure kila wiki.
+cs_009,code_switch,Bei hiyo ni discount ya asilimia hamsini.
+cs_010,code_switch,Nitakutumia link ya meeting kesho asubuhi.
+cs_011,code_switch,"Computer yangu ina virus, inahitaji antivirus mpya."
+cs_012,code_switch,Online shopping imekuwa maarufu sana siku hizi.
+ne_001,named_entities,Rais wa Kenya alizuru mji wa Kisumu wiki iliyopita.
+ne_002,named_entities,Mlima Kilimanjaro ndio mlima mrefu zaidi barani Afrika.
+ne_003,named_entities,"Ziwa Victoria linapakana na Kenya, Uganda na Tanzania."
+ne_004,named_entities,Bandari ya Mombasa ni lango kuu la biashara Afrika Mashariki.
+ne_005,named_entities,Chuo Kikuu cha Nairobi kimepokea wanafunzi wapya elfu kumi.
+ne_006,named_entities,Shirika la Afya Duniani limetoa taarifa mpya kuhusu chanjo.
+ne_007,named_entities,Mto Tana ni mto mrefu zaidi nchini Kenya.
+ne_008,named_entities,Hifadhi ya Serengeti huvutia watalii kutoka kote duniani.
+ne_009,named_entities,Benki Kuu ya Tanzania imeshusha riba kwa asilimia mbili.
+ne_010,named_entities,Jiji la Dar es Salaam lina wakazi zaidi ya milioni sita.
+ne_011,named_entities,Uwanja wa ndege wa Jomo Kenyatta ndio mkubwa Afrika Mashariki.
+ne_012,named_entities,Klabu ya Simba ilishinda ubingwa wa ligi msimu huu.
+en_001,english,The weather forecast predicts heavy rainfall across the region tomorrow morning.
+en_002,english,Please remember to submit your application before the deadline on Friday.
+en_003,english,The new hospital will serve more than fifty thousand patients every year.
+en_004,english,Technology companies are investing heavily in renewable energy solutions.
+en_005,english,She traveled from Nairobi to Mombasa by train last weekend.
+en_006,english,The teacher explained the mathematics lesson clearly to all the students.
+en_007,english,Farmers are adopting modern irrigation methods to improve their harvests.
+en_008,english,The government announced new policies to support small businesses.
+en_009,english,Digital banking has transformed how people manage their money.
+en_010,english,The conference will bring together researchers from across East Africa.
+en_011,english,Clean water access remains a priority for rural communities.
+en_012,english,The football match attracted thousands of excited fans to the stadium.
+sh_001,short_word,Ndiyo.
+sh_002,short_word,Hapana.
+sh_003,short_word,Asante sana.
+sh_004,short_word,Karibu.
+sh_005,short_word,Sawa basi.
+sh_006,short_word,Habari yako?
+sp_sw_001,spelling,Piga simu 0712 345 678 ukihitaji msaada.
+sp_sw_002,spelling,Nambari ya tiketi yako ni 48213.
+sp_sw_003,spelling,Nambari yako ya usajili ni KQ-4B7X2.
+sp_sw_004,spelling,Wasiliana na KRA kupitia nambari 0800 722 222.
+sp_sw_005,spelling,Gari lenye nambari KDA 123B lilisimamishwa jana.
+sp_sw_006,spelling,"Nambari yako ya siri ni 5931, usimpe mtu yeyote."
+sp_sw_007,spelling,Kikao cha NHIF na NSSF kitaanza kesho asubuhi.
+sp_sw_008,spelling,Weka PIN yako 2468 kisha bonyeza sawa.
+sp_sw_009,spelling,Ndege ya KQ100 itaondoka saa 4 asubuhi.
+sp_sw_010,spelling,Akaunti yako ya benki ni 0110234567.
+sp_sw_011,spelling,Tuma neno sawa kwa nambari 22384.
+sp_sw_012,spelling,"Bei ya sukari ni shilingi 3,500 kwa kilo."
+sp_en_001,spelling,Please call 0722 555 019 to confirm your booking.
+sp_en_002,spelling,Your ticket number is 48213.
+sp_en_003,spelling,Your booking reference is KQ-4B7X2.
+sp_en_004,spelling,Flight KQ100 departs at 8 in the morning.
+sp_en_005,spelling,Enter the OTP 7391 to continue.
+sp_en_006,spelling,The KRA office is next to the NSSF building.
+sp_en_007,spelling,Your order number is AB123CD.
+sp_en_008,spelling,Send the word stop to 22384.
+sp_en_009,spelling,"The total came to 3,500 shillings."
+sp_cs_001,spelling,Tafadhali call 0712 345 678 kwa msaada zaidi.
+sp_cs_002,spelling,Ticket number yako ni 48213.
+sp_cs_003,spelling,"Booking reference yako ni KQ-4B7X2, usiipoteze."
+sp_cs_004,spelling,Flight KQ100 inaondoka saa 2 asubuhi.
+sp_cs_005,spelling,Weka OTP 7391 kwenye app.
+sp_cs_006,spelling,Nitatuma link kwa nambari 0733 900 111.
+sp_cs_007,spelling,Order yako AB123CD imefika ofisini.
+sp_cs_008,spelling,Tuma stop kwa 22384 ili kusitisha huduma.
+sp_cs_009,spelling,"Lipa na paybill 522533, account number ni 78120."

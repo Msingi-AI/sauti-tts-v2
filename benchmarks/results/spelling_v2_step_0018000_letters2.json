@@ -1,0 +1,772 @@
+{
+  "summary": {
+    "spelling": {
+      "n": 30,
+      "wer": 0.1119,
+      "cer": 0.0508,
+      "f0_match_rate": 1.0,
+      "item_acc": 0.829,
+      "item_cer": 0.066,
+      "item_acc_sw": 0.824,
+      "item_acc_en": 0.75,
+      "item_acc_cs": 0.917
+    }
+  },
+  "ref_f0": 230.76923076923077,
+  "clips": {
+    "sp_sw_001": {
+      "id": "sp_sw_001",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "piga simu sifuri saba moja mbili tatu nne tano sita saba nane ukihitaji msaada",
+      "hyp": "piga simu sifuri saba moja mbili tatu nne tano sita saba nane ukitaji msaada",
+      "raw_hyp": "Piga simu 0712 345 678 ukitaji msaada.",
+      "wer": 0.0714,
+      "cer": 0.0256,
+      "f0": 244.9,
+      "f0_match": true,
+      "itn_hyp": "Piga simu 0712345678 ukitaji msaada.",
+      "expected_items": [
+        "0712345678"
+      ],
+      "got_items": [
+        "0712345678"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_002": {
+      "id": "sp_sw_002",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "nambari ya tiketi yako ni nne nane mbili moja tatu",
+      "hyp": "nambari ya tiketi yako ni nne nane mbili moja tatu",
+      "raw_hyp": "Nambari ya tiketi yako ni 48213.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Nambari ya tiketi yako ni 48213.",
+      "expected_items": [
+        "48213"
+      ],
+      "got_items": [
+        "48213"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_003": {
+      "id": "sp_sw_003",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "nambari yako ya usajili ni kei kyuu nne bii saba eksi mbili",
+      "hyp": "nambari yako ya usajili ni kei kyuu yune bii saba eksi mbili",
+      "raw_hyp": "Nambari yako ya usajili ni KQ, yune B7X mbili.",
+      "wer": 0.0833,
+      "cer": 0.0339,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Nambari yako ya usajili ni KQ, yune B7X2.",
+      "expected_items": [
+        "KQ4B7X2"
+      ],
+      "got_items": [
+        "KQ",
+        "B7X2"
+      ],
+      "item_hits": 0,
+      "item_total": 1,
+      "item_acc": 0.0,
+      "item_cer": 0.1429
+    },
+    "sp_sw_004": {
+      "id": "sp_sw_004",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "wasiliana na kei aa ei kupitia nambari sifuri nane sifuri sifuri saba mbili mbili mbili mbili mbili",
+      "hyp": "wasiliana na kei aa ei kupitia nambari sifuri nane sifuri sifuri saba mbili mbili mbili mbili mbili mbili",
+      "raw_hyp": "Wasiliana na KRA kupitia nambari 08007222222.",
+      "wer": 0.0588,
+      "cer": 0.0606,
+      "f0": 230.8,
+      "f0_match": true,
+      "itn_hyp": "Wasiliana na KRA kupitia nambari 08007222222.",
+      "expected_items": [
+        "KRA",
+        "0800722222"
+      ],
+      "got_items": [
+        "KRA",
+        "08007222222"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_005": {
+      "id": "sp_sw_005",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "gari lenye nambari kei dii ei moja mbili tatu bii lilisimamishwa jana",
+      "hyp": "gari lenye nambari kei dii ei moja mbili tatubili lisimamishwa jana",
+      "raw_hyp": "Gari lenye nambari KDA, moja mbili tatubili lisimamishwa jana.",
+      "wer": 0.25,
+      "cer": 0.058,
+      "f0": 226.4,
+      "f0_match": true,
+      "itn_hyp": "Gari lenye nambari KDA, 12 tatubili lisimamishwa jana.",
+      "expected_items": [
+        "KDA",
+        "123B"
+      ],
+      "got_items": [
+        "KDA",
+        "12"
+      ],
+      "item_hits": 1,
+      "item_total": 2,
+      "item_acc": 0.5,
+      "item_cer": 0.25
+    },
+    "sp_sw_006": {
+      "id": "sp_sw_006",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "nambari yako ya siri ni tano tisa tatu moja usimpe mtu yeyote",
+      "hyp": "nambari yako ya siri ni tano tisa tatu moja usimpe mtu yeyote",
+      "raw_hyp": "Nambari yako ya siri ni 5, 9, 3, 1. Usimpe mtu yeyote.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 235.3,
+      "f0_match": true,
+      "itn_hyp": "Nambari yako ya siri ni 5, 9, 3, 1. Usimpe mtu yeyote.",
+      "expected_items": [
+        "5931"
+      ],
+      "got_items": [
+        "5",
+        "9",
+        "3",
+        "1"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_007": {
+      "id": "sp_sw_007",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "kikao cha eni eichi ai efu na eni esi esi efu kitaanza kesho asubuhi",
+      "hyp": "kikau cha eni eichi ai efu na eni esi esi efu kitaanza kesho asubuhi",
+      "raw_hyp": "Kikau cha N-H-I-F na N-S-S-F kitaanza kesho asubuhi.",
+      "wer": 0.0714,
+      "cer": 0.0147,
+      "f0": 227.5,
+      "f0_match": true,
+      "itn_hyp": "Kikau cha NHIF na NSSF kitaanza kesho asubuhi.",
+      "expected_items": [
+        "NHIF",
+        "NSSF"
+      ],
+      "got_items": [
+        "NHIF",
+        "NSSF"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_008": {
+      "id": "sp_sw_008",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "weka pii ai eni yako mbili nne sita nane kisha bonyeza sawa",
+      "hyp": "weka pii ai eni ya kombili nsita nane kisha bonyeza sawa",
+      "raw_hyp": "Weka PIN ya kombili nsita nane. Kisha bonyeza sawa.",
+      "wer": 0.3333,
+      "cer": 0.0847,
+      "f0": 235.3,
+      "f0_match": true,
+      "itn_hyp": "Weka PIN ya kombili nsita 8. Kisha bonyeza sawa.",
+      "expected_items": [
+        "PIN",
+        "2468"
+      ],
+      "got_items": [
+        "PIN",
+        "8"
+      ],
+      "item_hits": 1,
+      "item_total": 2,
+      "item_acc": 0.5,
+      "item_cer": 0.375
+    },
+    "sp_sw_009": {
+      "id": "sp_sw_009",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "ndege ya kei kyuu moja sifuri sifuri itaondoka saa nne asubuhi",
+      "hyp": "ndege ya kei kyuu moja sifuri sifuri itaondoka saa nne asubuhi",
+      "raw_hyp": "Ndege ya KQ moja sifuri. Sifuri itaondoka saa 4 asubuhi.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 242.4,
+      "f0_match": true,
+      "itn_hyp": "Ndege ya KQ10. 0 itaondoka saa 4 asubuhi.",
+      "expected_items": [
+        "KQ100",
+        "4"
+      ],
+      "got_items": [
+        "KQ10",
+        "0",
+        "4"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_010": {
+      "id": "sp_sw_010",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "akaunti yako ya benki ni sifuri moja moja sifuri mbili tatu nne tano sita saba",
+      "hyp": "akaunti yako ya bengi ni sifuri moja moja sifuri mbili tatu nne tano sita saba",
+      "raw_hyp": "Akaunti yako ya bengi ni 0110-234-567.",
+      "wer": 0.0667,
+      "cer": 0.0128,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Akaunti yako ya bengi ni 0110 - 234 - 567.",
+      "expected_items": [
+        "0110234567"
+      ],
+      "got_items": [
+        "0110",
+        "234",
+        "567"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_011": {
+      "id": "sp_sw_011",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "tuma neno sawa kwa nambari mbili mbili tatu nane nne",
+      "hyp": "tuma neno sawa kwa nambari mbili mbili tatu nane nne",
+      "raw_hyp": "Tuma neno sawa kwa nambari mbili mbili tatu nane nne.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 226.4,
+      "f0_match": true,
+      "itn_hyp": "Tuma neno sawa kwa nambari 22384.",
+      "expected_items": [
+        "22384"
+      ],
+      "got_items": [
+        "22384"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_sw_012": {
+      "id": "sp_sw_012",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "bei ya sukari ni shilingi elfu tatu mia tano kwa kilo",
+      "hyp": "bii ei ii ya sukari ni shilingi elfu tatu mia tano kwa kilo",
+      "raw_hyp": "BAE ya sukari ni shilingi elfu tatu miatano kwa kilo.",
+      "wer": 0.2727,
+      "cer": 0.1132,
+      "f0": 230.8,
+      "f0_match": true,
+      "itn_hyp": "BAE ya sukari ni shilingi 3500 kwa kilo.",
+      "expected_items": [
+        "3500"
+      ],
+      "got_items": [
+        "BAE",
+        "3500"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_001": {
+      "id": "sp_en_001",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "please call zero seven two two five five five zero one nine to confirm your booking",
+      "hyp": "please call zero seven two two five five five zero one nine to confirm your booking",
+      "raw_hyp": "Please call 0722 555019 to confirm your booking.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 237.6,
+      "f0_match": true,
+      "itn_hyp": "Please call 0722555019 to confirm your booking.",
+      "expected_items": [
+        "0722555019"
+      ],
+      "got_items": [
+        "0722555019"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_002": {
+      "id": "sp_en_002",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "your ticket number is four eight two one three",
+      "hyp": "your ticket number is four eight two one three",
+      "raw_hyp": "Your ticket number is 48213.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 244.9,
+      "f0_match": true,
+      "itn_hyp": "Your ticket number is 48213.",
+      "expected_items": [
+        "48213"
+      ],
+      "got_items": [
+        "48213"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_003": {
+      "id": "sp_en_003",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "your booking reference is kay queue four bee seven ex two",
+      "hyp": "your booking reference is kay queue four bee seven ex two",
+      "raw_hyp": "Your booking reference is KQ-4B7X2.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Your booking reference is KQ4B7X2.",
+      "expected_items": [
+        "KQ4B7X2"
+      ],
+      "got_items": [
+        "KQ4B7X2"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_004": {
+      "id": "sp_en_004",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "flight kay queue one zero zero departs at eight in the morning",
+      "hyp": "flight kai queue one zero zero departs at eight in the morning",
+      "raw_hyp": "Flight Kai-Q100 departs at 8 in the morning.",
+      "wer": 0.0833,
+      "cer": 0.0161,
+      "f0": 226.4,
+      "f0_match": true,
+      "itn_hyp": "Flight Kai - Q100 departs at 8 in the morning.",
+      "expected_items": [
+        "KQ100",
+        "8"
+      ],
+      "got_items": [
+        "Q100",
+        "8"
+      ],
+      "item_hits": 1,
+      "item_total": 2,
+      "item_acc": 0.5,
+      "item_cer": 0.1
+    },
+    "sp_en_005": {
+      "id": "sp_en_005",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "enter the oh tee pee seven three nine one to continue",
+      "hyp": "enter the oh tee pee seven three nine one to continue",
+      "raw_hyp": "Enter the OTP 7391 to continue.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 226.4,
+      "f0_match": true,
+      "itn_hyp": "Enter the OTP7391 to continue.",
+      "expected_items": [
+        "OTP",
+        "7391"
+      ],
+      "got_items": [
+        "OTP7391"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_006": {
+      "id": "sp_en_006",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "the kay ar ey office is next to the en ess ess ef building",
+      "hyp": "the kay eye ey office is next to the inesis eye ef building",
+      "raw_hyp": "The KIA office is next to the Inesis-IF building.",
+      "wer": 0.2857,
+      "cer": 0.1379,
+      "f0": 233.0,
+      "f0_match": true,
+      "itn_hyp": "The KIA office is next to the Inesis - IF building.",
+      "expected_items": [
+        "KRA",
+        "NSSF"
+      ],
+      "got_items": [
+        "KIA",
+        "IF"
+      ],
+      "item_hits": 0,
+      "item_total": 2,
+      "item_acc": 0.0,
+      "item_cer": 0.5417
+    },
+    "sp_en_007": {
+      "id": "sp_en_007",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "your order number is ey bee one two three see dee",
+      "hyp": "your order number is ey bee one two three see dee",
+      "raw_hyp": "Your order number is AB123CD.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 237.6,
+      "f0_match": true,
+      "itn_hyp": "Your order number is AB123CD.",
+      "expected_items": [
+        "AB123CD"
+      ],
+      "got_items": [
+        "AB123CD"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_008": {
+      "id": "sp_en_008",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "send the word stop to two two three eight four",
+      "hyp": "send the word ess tee oh pee to two two three eight four",
+      "raw_hyp": "Send the word STOP to 22384.",
+      "wer": 0.4,
+      "cer": 0.2174,
+      "f0": 237.6,
+      "f0_match": true,
+      "itn_hyp": "Send the word STOP to 22384.",
+      "expected_items": [
+        "22384"
+      ],
+      "got_items": [
+        "STOP",
+        "22384"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_en_009": {
+      "id": "sp_en_009",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "en",
+      "ref": "the total came to three thousand five hundred shillings",
+      "hyp": "the total came to three thousand five hundred shillings",
+      "raw_hyp": "The total came to 3500 shillings.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 231.9,
+      "f0_match": true,
+      "itn_hyp": "The total came to 3500 shillings.",
+      "expected_items": [
+        "3500"
+      ],
+      "got_items": [
+        "3500"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_001": {
+      "id": "sp_cs_001",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "tafadhali call sifuri saba moja mbili tatu nne tano sita saba nane kwa msaada zaidi",
+      "hyp": "tafadhali kol sifuri saba moja mbili tatu nne tano sita saba nane kwa msaada zaidi",
+      "raw_hyp": "Tafadhali kol 0712 345 678 kwa msaada zaidi.",
+      "wer": 0.0667,
+      "cer": 0.0361,
+      "f0": 228.6,
+      "f0_match": true,
+      "itn_hyp": "Tafadhali kol 0712345678 kwa msaada zaidi.",
+      "expected_items": [
+        "0712345678"
+      ],
+      "got_items": [
+        "0712345678"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_002": {
+      "id": "sp_cs_002",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "ticket number yako ni nne nane mbili moja tatu",
+      "hyp": "ticket number yako ni nne nane mbili moja tatu",
+      "raw_hyp": "Ticket number yako ni 48213.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 231.9,
+      "f0_match": true,
+      "itn_hyp": "Ticket number yako ni 48213.",
+      "expected_items": [
+        "48213"
+      ],
+      "got_items": [
+        "48213"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_003": {
+      "id": "sp_cs_003",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "booking reference yako ni kei kyuu nne bii saba eksi mbili usiipoteze",
+      "hyp": "booking reference yako ni kei kyuu nebisa ba x mbili usipoteze",
+      "raw_hyp": "Booking reference yako ni KQ, nebisa ba x mbili usipoteze.",
+      "wer": 0.4167,
+      "cer": 0.1449,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Booking reference yako ni KQ, nebisa ba x 2 usipoteze.",
+      "expected_items": [
+        "KQ4B7X2"
+      ],
+      "got_items": [
+        "KQ",
+        "2"
+      ],
+      "item_hits": 0,
+      "item_total": 1,
+      "item_acc": 0.0,
+      "item_cer": 0.5714
+    },
+    "sp_cs_004": {
+      "id": "sp_cs_004",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "flight kei kyuu moja sifuri sifuri inaondoka saa mbili asubuhi",
+      "hyp": "flight kei kyuu moja sifuri sifuri inaondoka saa mbili asubui",
+      "raw_hyp": "Flight KQ moja sifuri. Sifuri inaondoka saambili asubui.",
+      "wer": 0.1,
+      "cer": 0.0161,
+      "f0": 230.8,
+      "f0_match": true,
+      "itn_hyp": "Flight KQ10. 0 inaondoka saa 2 asubui.",
+      "expected_items": [
+        "KQ100",
+        "2"
+      ],
+      "got_items": [
+        "KQ10",
+        "0",
+        "2"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_005": {
+      "id": "sp_cs_005",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "weka oo tii pii saba tatu tisa moja kwenye app",
+      "hyp": "weka oo tii pii saba tatu tisa moja kwenye app",
+      "raw_hyp": "Weka OTP 739 moja kwenye app.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 233.0,
+      "f0_match": true,
+      "itn_hyp": "Weka OTP7391 kwenye app.",
+      "expected_items": [
+        "OTP",
+        "7391"
+      ],
+      "got_items": [
+        "OTP7391"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_006": {
+      "id": "sp_cs_006",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "nitatuma link kwa nambari sifuri saba tatu tatu tisa sifuri sifuri moja moja moja",
+      "hyp": "nitatuma link kwa nambari sifuri saba tatu tatu tisa sifuri sifuri moja moja moja",
+      "raw_hyp": "Nitatuma link kwa nambari 0733 900 111.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 242.4,
+      "f0_match": true,
+      "itn_hyp": "Nitatuma link kwa nambari 0733900111.",
+      "expected_items": [
+        "0733900111"
+      ],
+      "got_items": [
+        "0733900111"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_007": {
+      "id": "sp_cs_007",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "order yako ei bii moja mbili tatu sii dii imefika ofisini",
+      "hyp": "oda yako ei bii moja mbili tatu sii dii imefika ofisini",
+      "raw_hyp": "Oda yako AB, moja mbili tatu. CD imefika ofisini.",
+      "wer": 0.0909,
+      "cer": 0.0526,
+      "f0": 240.0,
+      "f0_match": true,
+      "itn_hyp": "Oda yako AB, 123. CD imefika ofisini.",
+      "expected_items": [
+        "AB123CD"
+      ],
+      "got_items": [
+        "AB",
+        "123",
+        "CD"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_008": {
+      "id": "sp_cs_008",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "tuma stop kwa mbili mbili tatu nane nne ili kusitisha huduma",
+      "hyp": "tuma stop kwa mbili mbili tatu nane nne ili kusitisha huduma",
+      "raw_hyp": "Tuma stop kwa mbili mbili tatu nane ine ili kusitisha huduma.",
+      "wer": 0.0,
+      "cer": 0.0,
+      "f0": 228.6,
+      "f0_match": true,
+      "itn_hyp": "Tuma stop kwa 22384 ili kusitisha huduma.",
+      "expected_items": [
+        "22384"
+      ],
+      "got_items": [
+        "22384"
+      ],
+      "item_hits": 1,
+      "item_total": 1,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    },
+    "sp_cs_009": {
+      "id": "sp_cs_009",
+      "category": "spelling",
+      "judge": "openai/whisper-large-v3",
+      "lang": "auto",
+      "ref": "lipa na paybill tano mbili mbili tano tatu tatu account number ni seven eight one two zero",
+      "hyp": "lipa na pay bill five hundred and twenty two five hundred and thirty three account number ni seven eight one two zero",
+      "raw_hyp": "Lipa na pay bill 522-533, account number ni 78120.",
+      "wer": 0.7059,
+      "cer": 0.5,
+      "f0": 235.3,
+      "f0_match": true,
+      "itn_hyp": "Lipa na pay bill 522 - 533, account number ni 78120.",
+      "expected_items": [
+        "522533",
+        "78120"
+      ],
+      "got_items": [
+        "522",
+        "533",
+        "78120"
+      ],
+      "item_hits": 2,
+      "item_total": 2,
+      "item_acc": 1.0,
+      "item_cer": 0.0
+    }
+  }
+}
